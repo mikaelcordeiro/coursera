@@ -251,7 +251,7 @@ ter começado, já que pode ser um com muitos contribuidores, e eles, por conseg
 
 - Podemos dizer que as diversas licenças transitam dentro dessa *range*:
 
-![direitos](./rights.png)
+![direitos](./imagens/rights.png)
 
 - Nesse tema, existe um acrônomo chamado **FUD**, ou *Fear, Uncertainty and Doubt* do inglês. Ele surgiu como explicação 
 para a disseminação de desinformação, tendo como objetivo influenciar os ouvintes a evitar estratégias, produtos ou idéias, 
