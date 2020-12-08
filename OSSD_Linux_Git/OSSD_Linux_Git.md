@@ -276,3 +276,30 @@ existe uma breve lista das licensas dizem explicitamente os termos das patentes 
     
     - **Não Dizem**: BSD 2-Clause, MIT, GPL2.0 e LGPL2.1
 
+- Vamos falar agora de **Hospedagem**. Mas, para falar disso, devemos começar com o sistema de versionamento **Git**
+
+    - O Git foi criado pelo próprio Linus Torwalds em 2005. E o objetivo era concentrar, de forma eficiente, os trabalhos no kernel do Linux. Fazer o seu versionamento propriamente dito. Porém, percebeu-se que o **Git** poderia ser usado em quaisquer projetos que apresentassem as mesmas necessidades que o desenvolvimento do Linux apresentava, como:
+
+        Grupo grande de colaboradores
+
+        Colaboradores amplamente dispersos pelo mundo
+
+        Método amplamente aberto de desenvolvimento com muitos *releases*
+    
+    - Mas o uso do **Git** só explodiu de verdade em 2008, depois da difusão do **GitHub**, um versionador remoto de códigos. Isso mudou completamente a maneira de versionar projetos, uma vez que era necessário que cada projeto tivesse seu próprio servidor para hospedar as mudanças dos códigos, além de pessoas capacitadas em manter a segurança, integridade e *setup* do ambiente de versionamento
+
+    - Mas não existe somente o **GitHub** como repositório remoto, outros populares são:
+
+        GitLab
+
+        GitKraken
+
+        Launchpad
+    
+    - Falando do **GitHub**, existem dois tipos de repositórios, que nada mais são que diretórios versionados remotamente e hospedados no site do **GitHub**, que são eles:
+
+        **Públicos**: desde que a licença permita, qualquer um pode olhar, copiar (git clone), modificar (git fork/ git pull request). Se você não é um colaborador autorizado pelo dono do projeto, fica a cargo dele aceitar ou não seus *pull requests*. Geralmente, repositórios públicos são livres de taxas
+
+        **Privados**: o proprietário precisa autorizar *explicitamente* os colaboradores do repositório. Com isso, eles podem modificar, copiar ou baixar os *scripts*. Geralmente, esse tipo de repositório representa projetos privados, que envolvem custos à medida que se necessitam novos subrepositórios, ou novos colaboradores.
+    
+    
