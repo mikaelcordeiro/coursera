@@ -302,4 +302,37 @@ existe uma breve lista das licensas dizem explicitamente os termos das patentes 
 
         **Privados**: o proprietário precisa autorizar *explicitamente* os colaboradores do repositório. Com isso, eles podem modificar, copiar ou baixar os *scripts*. Geralmente, esse tipo de repositório representa projetos privados, que envolvem custos à medida que se necessitam novos subrepositórios, ou novos colaboradores.
     
-    
+## Curso 2: Linux for Developers
+##### Professor: Jerry Cooperstein
+
+##### Nesse curso, veremos o que é Linux, sua história. E qual a diferença entre o kernel e o Sistema Operacional. Falaremos também da interface gráfica e como funciona, partições, pastas e, mais importante de tudo, LINHAS DE COMANDO!!
+
+### Anotações
+
+#### Módulo 1 - Visão Geral
+
+- **Linux**: estritamente falando, representa apenas o **kernel** do sistema operacional, ou *OS*
+
+- **Kernel**: representa o componente central que conecta o *hardware* com o *software*, e lida com os recursos do sistema, como: memória e tempo de compartilhamento do CPU entre serviços e aplicações que competem entre si. Além disso, lida também com todos os dispositovos conectados ao computador, os tão conhecidos *drivers*, e os faz estarem disponíveis para o *OS* usar.
+
+- Um sistema que roda somente o kernel apresenta funções limitadas, e o único lugar que veremos esse tipo de coisa será em **Sistemas Dedidados**, os tão famosos ***Embedded Systems***, como dentro de uma aplicação.
+
+- ***OS***: Não representam, necessariamente, parte do kernel, mas sim um conjunto de outros componentes que habilitam a execução de outras atividades, sendo esses *outros componentes*:
+
+    - **Bibliotecas do Sistema**: são pacotes que armazemam diversas funções, cada uma para uma ação diferente. Essas bibliotecas podem ser compartilhadas ou dinamicamente ligadas, e podem ser usadas simultaneamente por mais de uma ação/aplicação. Dentre as bibliotecas, a **libc** é, de longe, a mais importante. Isso porque ela lida com a comunicação entre as **aplicações** e o **kernel**.
+
+    - **Serviços do Sistema**: também conhecido como **Daemons**, são responsáveis por monitorar e controlar as atividades que estão rodando no sistema, como: manutenção de disco, notificações, monitoramento de carga e performance do sistema, e outras coisas mais.
+
+    - **Serviços Básicos de Utilidade do Sistema**: são nada menos que serviços que executam atividades simples, como: listagem de arquivos, visualização, renomeação e remoção deles. Também criam e destroem conexões com internet, comprimem e descomprimem arquivos. Um programa particularmente importante é o **shell**, sendo ele o mais usado para interagir com o sistema através de linhas de comando. Por padrão, o programa **shell** no Linux é o **bash**, que é uma extensão do antigo **sh**.
+
+- **Componentes Principais de um Linux *OS***
+
+![sistema operacional](../imagens/OS.png)
+
+**GUI - Graphical User Interface**
+
+- Quase todo usuário Linux roda o sistema numa interface gráfica, pois é mais amigável e minimiza a necessidade de utilização do **shell**, ou **bash**, mencionado acima. E quase todos os sistemas Linux com interface gráfica são construídos usando o **X Window System**, ou **X**, como a base dessa interface.
+
+- Paralelo ao **X**, existirão os tão conhecidos **Gerenciadores de Janelas**. Esses controlam a aparência e comportamento das mesmas.
+
+- Por fim, tem o **Gerenciador do *Desktop***, que controla toda a interface gráfica do computador. As escolhas mais comuns no Linux são **GNOME** e o **KDE**
