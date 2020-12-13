@@ -336,3 +336,21 @@ existe uma breve lista das licensas dizem explicitamente os termos das patentes 
 - Paralelo ao **X**, existirão os tão conhecidos **Gerenciadores de Janelas**. Esses controlam a aparência e comportamento das mesmas.
 
 - Por fim, tem o **Gerenciador do *Desktop***, que controla toda a interface gráfica do computador. As escolhas mais comuns no Linux são **GNOME** e o **KDE**
+
+**Linux e UNIX**
+
+- Como dito, o Linux é apenas o kernel do sistema operacional. Ou seja, linux não é UNIX (embora seja muito parecido)
+
+- UNIX foi desenvolvido por volta de 1969 para ser um empreendimento sério, um sistema operacional sério. E que cresceu amplamente fora da família Intel de CPUs, embora fosse transferido pra ela posteriormente.
+
+- No período que o Linux apareceu, o UNIX estava fragmentado, com muitas variantes, sendo duas delas o **System V** e o **BSD**. O primeiro vinha do código original do Bell Labs. Já o segundo surgia da Universidade da Califórnia, Berkeley.
+
+**GNU**
+
+- Para entender, **GNU** é um projeto da **Free Software Foundation** que produziu versões *distribuíveis* de diversos serviços básicos de utilidade do sistema, como: tar, grep, ls ... e mais importante, o compilador **gcc** e a **libc**.
+
+- Esse projeto foi determinante para o crescimento do Linux. A disponibilidade que o projeto GNU trouxe para a comunidade fez o linux crescer muito.
+
+- Embora o Linux e o UNIX não sejam a mesma coisa, o Linux acabou pegando emprestado muita coisa do UNIX. Componentes básicos do linux, como:  inode-based filesystem, acesso de dispositivos do hardware através de *nodes*, agendamento de multi-processamento, criação a aniquilação de processos, tudo isso foi muito bem enraizado do universo UNIX. Isso foi devido ao fato dos desenvolvedores do Linux terem uma boa imersão no mundo UNIX, e também devido a disponibilidade das ferramentas UNIX orginárias do projeto GNU.
+
+- 
