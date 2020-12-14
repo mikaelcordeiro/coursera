@@ -353,4 +353,17 @@ existe uma breve lista das licensas dizem explicitamente os termos das patentes 
 
 - Embora o Linux e o UNIX não sejam a mesma coisa, o Linux acabou pegando emprestado muita coisa do UNIX. Componentes básicos do linux, como:  inode-based filesystem, acesso de dispositivos do hardware através de *nodes*, agendamento de multi-processamento, criação a aniquilação de processos, tudo isso foi muito bem enraizado do universo UNIX. Isso foi devido ao fato dos desenvolvedores do Linux terem uma boa imersão no mundo UNIX, e também devido a disponibilidade das ferramentas UNIX orginárias do projeto GNU.
 
-- 
+**Distribuições Linux**
+
+- Red Hat
+    
+    - compõem a base das seguintes distribuições: **Red Hat Enterprise Linux**, **CentOS**, **Scientific Linux**, **Oracle Linux**, **Fedora**
+
+- SUSE
+
+    - compõem a base da seguinte distribuição: **SUSE Linux Enterprise Server**, **OpenSUSE**
+
+- Debian
+
+    - compõem a base das seguintes distribuições: **Ubuntu**, **Linux Mint**. O foco dessas *distros* é a **ESTABILIDADE**, além de promover o maior número de repositórios para os usuários.
+
