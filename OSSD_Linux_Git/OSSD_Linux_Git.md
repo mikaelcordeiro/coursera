@@ -367,3 +367,81 @@ existe uma breve lista das licensas dizem explicitamente os termos das patentes 
 
     - compõem a base das seguintes distribuições: **Ubuntu**, **Linux Mint**. O foco dessas *distros* é a **ESTABILIDADE**, além de promover o maior número de repositórios para os usuários.
 
+**Comando sudo e configuração de Superusuário**
+
+Esse comando foi criado para não rodarmos certos comando *root* de maneira tão simples. Ele significa que, para rodar determinado comando, é necessário privilégio de **superusuário**. Podemos ver se um usuário já tem acesso liberado ao comando **sudo** com o seguinte comando:
+
+```bash
+sudo ls
+```
+
+> fazendo isso, deve aparecer um pedido de *password* caso o usuário tenha privilégio de superusuário
+
+caso contrário, aparecerá uma mensagem de erro. Sinal que esse usuário não tem privilégio de superusuário. Diante disso, sua configuração é feita utilizando o seguinte comando:
+
+```bash
+sudo passwd root
+```
+
+> será solicitado o cadastro de uma senha
+
+Cadastrando essa senha, digitamos o seguinte comando:
+
+```bash
+sudo passwd -u root
+```
+
+> passwd: informação de expiração de senha alterada
+
+Agora, basta digitar o seguinte comando para entrar no modo **superusuário**:
+
+```bash
+su
+```
+
+> será solicitada a senha cadastrada
+
+**Repare**: Antes, aparecia uma **$** antes dos scripts, com o superusuário ativado, aparece um **#**. Por fim, para sair de estado, basta digitar o comando:
+
+```bash
+exit
+```
+
+Uma outra maneira de configurar o comando **sudo**, mas de maneira mais aprofundada, é escrevendo no arquivo **sudoers** que está no seguinte caminho: */etc/*. E para editá-lo, vc precisa de acesso privilegiado e um editor de texto, usamos o editor *nano* no caso:
+
+```bash
+sudo nano /etc/sudoers
+```
+
+Para editá-lo de maneira correta, deve-se encontrar sua documentação. Nesse arquivo, é possível adicionar novos superusuários, quais comando um superusuário pode usar, e assim vai...
+
+**Interfaces e Camadas Gráficas**
+
+- A interface gráfica do Linux é composta por um número de camadas, sendo cada camada representada por um conjunto de opções:
+
+![camadas](../imagens/camadas.png)
+
+- **Display Manager**
+
+    - **X Window**: também chamada de **X**, ou **Xorg**, foi designada a mostrar os resultados das atividades de computadores remotos, diferente de outros *OS* conhecidos, que mostravam apenas os programas rodando em máquinas locais, que poderiam, ou não, ter conexão remota. De maneira geral, a função principal do *X* é lidar com as informações advindas do teclado e mouse, mostrando os resultados dessas informações *inputadas* na tela, ou em várias delas.
+
+        > Na nomenclatura do **X**, temos o **servidor** e o **cliente**. O primeiro é o que roda na máquina local e lida com *inputs* (teclado e mouse) e mostra os resultados na tela. Já o segundo, é a aplicação sendo mostrada na tela, podendo ser de um ambiente remoto ou local.
+
+    - **Wayland**: substitudo do **X Window**
+
+- **Window Manager**
+
+    - Como vimos, **X** apresenta funções limitadas, não controla a posição exata e aparência das janelas na interface gráfica. Isso é trabalho do window manager, como também: lidar com múltiplos *desktops*, prover janelas tabuladas, controlar efeitos visuais.
+
+    - Essa não é a lista completa de funções, e a fronteira do que o Display Manager, ou o Window Manager, faz não é bem definida. Além do mais, o próprio window manager tem a capacidade de muitas das suas propriedades, e diferentes window managers podem ser muito parecidos.
+
+    - Para o Linux, existem alguns desses. Para GNOME 3 - **mutter**, KDE - **kwin**. Algumas alternativas são bem rápidas, ideais para *hardwares* limitados, como **fvwm** e **fluxbox**.
+
+- **Desktop Manager**
+
+    - É a camada mais superficial da interface gráfica do kernel Linux, é a que nós usuários interagimos. Suas funções são: gerar barras (menu, tarefas, ...), oferecer aplicações (relógio, monitor de performance, controle de volume, ...), habilita inicialização de aplicações na página inicial, modificar telas de fundo e temas, funções de *arrasta e solta*.
+
+    - Os mais comuns são: Para GNOME - **gtk**, KDE - **QT**
+
+    - Como mencionada a existência de window manager leves e rápidos, como **fvwm** e **fluxbox**, eles nem precisam de um desktop manager, uma vez que possuem funcionalidades suficientes para sobreviverem sozinhos.
+
