@@ -445,3 +445,13 @@ Para editá-lo de maneira correta, deve-se encontrar sua documentação. Nesse a
 
     - Como mencionada a existência de window manager leves e rápidos, como **fvwm** e **fluxbox**, eles nem precisam de um desktop manager, uma vez que possuem funcionalidades suficientes para sobreviverem sozinhos.
 
+**--help**
+
+Á medida que avançamos, vamos usar mais o terminal, e uma *flag* muito interessante de se conhecer é a que te ajuda, te explica sobre determinado comando, e essa é a **--help**
+
+```bash
+[comando] --help
+```
+
+> retornará na tela pra que serve esse comando, e todas as suas flags
+
