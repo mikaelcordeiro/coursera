@@ -309,7 +309,7 @@ existe uma breve lista das licensas dizem explicitamente os termos das patentes 
 
 ### Anotações
 
-#### Módulo 1 - Visão Geral
+#### Módulo 1
 
 - **Linux**: estritamente falando, representa apenas o **kernel** do sistema operacional, ou *OS*
 
@@ -454,4 +454,6 @@ Para editá-lo de maneira correta, deve-se encontrar sua documentação. Nesse a
 ```
 
 > retornará na tela pra que serve esse comando, e todas as suas flags
+
+#### Módulo 2
 
