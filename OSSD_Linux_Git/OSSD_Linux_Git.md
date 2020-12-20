@@ -450,10 +450,141 @@ Para editá-lo de maneira correta, deve-se encontrar sua documentação. Nesse a
 Á medida que avançamos, vamos usar mais o terminal, e uma *flag* muito interessante de se conhecer é a que te ajuda, te explica sobre determinado comando, e essa é a **--help**
 
 ```bash
-[comando] --help
+comando --help
 ```
 
 > retornará na tela pra que serve esse comando, e todas as suas flags
 
 #### Módulo 2
 
+**Trabalhando com editores de texto**
+
+Editores de texto representam a maneira mais simples e direta de escrever *scripts*. Os mais conhecidos são:
+
+- Vim
+
+- Emacs
+
+- nano
+
+- gedit
+
+E para começar, vamos aprender a gerar e escrever arquivos direto do terminal com os comandos **cat**, **echo** e **touch**, além dos sinais de redirecionamento **>**, **>>**.
+
+- **touch**
+
+```bash
+touch [nome_arquivo].[extensão]
+```
+> apenas cria o arquivo *nome_arquivo.extensão* no diretório atual
+
+- **echo**
+
+Funciona como a função print(), ou printf(). Se digitar no terminal o seguinte *script*:
+
+```bash
+echo hello world!
+```
+
+> retornará, no próprio terminal, a frase *hello world!*
+
+Agora que entram os **sinais de redirecionamento**. Se digitarmos o seguinte *script*:
+
+```bash
+echo hello world > arquivo.sh
+```
+
+> A saída do comando *echo hello world* será escrita dentro do arquivo *arquivo.sh* . Caso ele não exista, o arquivo será criado no diretório atual
+
+Agora, se quisermos adicionar uma linha ao *arquivo.sh*, não podemos mais usar o sinal **>**, pois essa linha nova **sobrescreverá** a já existente *echo hello world!*. Para solucionar esse problema, temos o sinal **>>**. Observe:
+
+```bash
+echo hello world again! >> arquivo.sh
+```
+
+> A saída do comando *echo hello world again!* será adicionada dentro do arquivo *arquivo.sh*, mas será abaixo da última linha do arquivo, como um *append*
+
+- **cat**
+
+Esse comando é mais versátil, é possivel **ler** e **escrever** num determinado arquivo. Se fizermos o seguinte script:
+
+```bash
+cat arquivo.sh
+```
+
+> será mostrado no terminal o conteúdo do *arquivo.sh*
+
+Agora, se usarmos um dos sinais de redirecionamento, o terminal dará a possibilidade de escrevermos várias linhas de uma vez:
+
+```bash
+cat sinal_redirecionamento arquivo.sh
+```
+
+> o terminal dará a possibilidade de escrever de maneira livre o que vai dentro do arquivo. Se usar um **>**, o que for escrito sobrescreverá o que já existe, se usar um **>>**, fará um *append*
+
+Podemos combinar também adição de um arquivo em outro usando o cat. Observe:
+
+```bash
+cat [arquivo1].[extensão] [sinal redirecionamento] [arquivo2].[extensão]
+```
+
+> o que teremos é a saida de um arquivo sendo direcionada a outro, e dependendo do sinal de redirecionamento, será um sobrescrito ou *append*
+
+**Alias**
+
+Podemos colocar *apelidos* a determinados programas. Isso facilita quando digitamos com frequencia certos comandos de sintaxe grande. Podemos fazê-los em dois lugares:
+
+- **terminal**
+
+    o *apelido* só permanesce ativo enquanto o terminal estver aberto, se fechá-lo e abrir outro, já era
+
+```bash
+alias apelido=comando_atual
+```
+
+- **~/.bashrc**
+
+    sempre que iniciamos um terminal novo, o arquivo *bashrc* é executado. E nele existem diversos comandos em *shell script* que configuram certas preferências do terminal. Então, se escrevermos os *apelidos* dentro desse arquivo, eles não deixarão de existir mais, mesmo iniciando outro terminal. Diante disso, basta escrever os *alias* da mesma maneira acima, mas dentro do *.bashrc* e salvar.
+
+**Variáveis Ambiente**
+
+Sempre que fazemos arquivos (arquivos eu falo *scripts* numa linguagem de programação) pode ser interessante que os tornemos um **executável**, igual os programas que baixamos no computador e damos dois-cliques para serem executados. E para tal, logo que criamos um determinado *script*, devemos colocá-lo num diretório que o executável possa encontrar, esse é o **AMBIENTE**. Agora, a variável é o que recebe esse valor, sendo ela chamada de **PATH**. Por isso que se chama **variável ambiente**: é uma variável que recebe um *caminho* como valor. Podemos ver as variáveis ambiente da seguinte maneira:
+
+```bash
+echo $PATH
+```
+
+> retornará todas as variáveis ambiente.
+
+Repare que elas sempre possuem uma pasta *bin*. Isso porque, no arquivo *.bashrc*, sempre vem já escrito um *script* que automaticamente coloca toda pasta bin do sistema na variável ambiente. Então, para criar um novo diretório que seja ambiente de execução de um programa/código, basta criar uma pasta *bin* e colocar esse arquivo dentro dela, ou colocar o programa/código numa desses diretórios já existentes, ou ainda, adicionar um novo diretório à variável ambiente. Isso pode ser feito no terminal, ou dentro do *.bashrc* (já mencioneu a diferença). Então, se faz da seguinte maneira:
+
+```bash
+PATH=[caminho]:$PATH
+```
+> adiciona o *caminho* à variavel ambiente
+
+Caso queira adicionar o diretório atual, basta fazer a seguinte modificação:
+
+```bash
+PATH=$PWD:$PATH
+```
+
+> adiciona o diretório atual ao *PATH*
+
+**Pipes**
+
+Vimos, com os sinais de redirecionamento, a possibilidade de direcionar a saída de um comando para um arquivo. Esse mesmo mecanismo pode ser usado para comando/comando. Ou seja, redirecionar a saída de um comando para outro comando, e faz-se isso com o sinal **|**:
+
+```bash
+comando1 | comando2 | comando3 ...
+```
+
+> o que o **comando1** gerar de *output* será usado como *input* do **comando2**, que será usado como *input* do comando3 e assim vai
+
+É possível até combinar um *pipe* com os sinais de redirecionamento, e armazenar a informação num arquivo
+
+```bash
+comando1 | comando2 | comando3 ... sinal_redirecionamento arquivo.extensão
+```
+
+> a saída gerada pelo *pipe* vai ser redirecionada ao *arquivo.extensão*
