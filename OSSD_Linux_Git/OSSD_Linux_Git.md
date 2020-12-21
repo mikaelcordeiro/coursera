@@ -474,7 +474,7 @@ E para começar, vamos aprender a gerar e escrever arquivos direto do terminal c
 - **touch**
 
 ```bash
-touch [nome_arquivo].[extensão]
+touch nome_arquivo.extensão
 ```
 > apenas cria o arquivo *nome_arquivo.extensão* no diretório atual
 
@@ -525,7 +525,7 @@ cat sinal_redirecionamento arquivo.sh
 Podemos combinar também adição de um arquivo em outro usando o cat. Observe:
 
 ```bash
-cat [arquivo1].[extensão] [sinal redirecionamento] [arquivo2].[extensão]
+cat arquivo1.extensão sinal redirecionamento arquivo2.extensão
 ```
 
 > o que teremos é a saida de um arquivo sendo direcionada a outro, e dependendo do sinal de redirecionamento, será um sobrescrito ou *append*
@@ -559,7 +559,7 @@ echo $PATH
 Repare que elas sempre possuem uma pasta *bin*. Isso porque, no arquivo *.bashrc*, sempre vem já escrito um *script* que automaticamente coloca toda pasta bin do sistema na variável ambiente. Então, para criar um novo diretório que seja ambiente de execução de um programa/código, basta criar uma pasta *bin* e colocar esse arquivo dentro dela, ou colocar o programa/código numa desses diretórios já existentes, ou ainda, adicionar um novo diretório à variável ambiente. Isso pode ser feito no terminal, ou dentro do *.bashrc* (já mencioneu a diferença). Então, se faz da seguinte maneira:
 
 ```bash
-PATH=[caminho]:$PATH
+PATH=caminho:$PATH
 ```
 > adiciona o *caminho* à variavel ambiente
 
@@ -569,7 +569,14 @@ Caso queira adicionar o diretório atual, basta fazer a seguinte modificação:
 PATH=$PWD:$PATH
 ```
 
-> adiciona o diretório atual ao *PATH*
+> adiciona o diretório atual ao *PATH*. Note que existe um *$* antes de *PWD* pois esse é uma variável que contem um *caminho*
+
+Pode-se fazer uma variável ambiente funcionar pra apenas um executável
+
+```bash
+PATH=caminho:$PATH arquivo.extensão
+```
+> Agora, mesmo existindo mais de um executável nesse ambiente, só o *arquivo.extensão* terá acesso
 
 **Pipes**
 
@@ -588,3 +595,17 @@ comando1 | comando2 | comando3 ... sinal_redirecionamento arquivo.extensão
 ```
 
 > a saída gerada pelo *pipe* vai ser redirecionada ao *arquivo.extensão*
+
+**Sistema de Arquivos e FHS**
+
+- Na tradição UNIX, todos sistemas de arquivos e partições estão localizadas dentro do diretório raiz **/**
+
+- O *FHS-Filesystem Hierarchy Standard*, administrado pela The Linux Foundation, especifica e explica o propósito dos principais diretórios que precisam estar presentes no *OS*. Muitas *distros* respeitam esse sistema, mas quase sempre não ao pé da letra.
+
+- Podemos ver, nas seguintes tabelas, o descritivo dos principais diretórios que um *OS* com kernel Linux deve ter:
+
+![tabela1](../imagens/diretorios1.png) ![tabela2](../imagens/diretorios2.png) ![tabela3](../imagens/diretorios3.png)
+
+**Partições**
+
+Falando agora do disco de armazenamento
