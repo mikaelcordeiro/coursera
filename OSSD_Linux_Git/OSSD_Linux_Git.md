@@ -544,7 +544,7 @@ alias apelido=comando_atual
 
 - **~/.bashrc**
 
-    sempre que iniciamos um terminal novo, o arquivo *bashrc* é executado. E nele existem diversos comandos em *shell script* que configuram certas preferências do terminal. Então, se escrevermos os *apelidos* dentro desse arquivo, eles não deixarão de existir mais, mesmo iniciando outro terminal. Diante disso, basta escrever os *alias* da mesma maneira acima, mas dentro do *.bashrc* e salvar.
+    sempre que iniciamos um terminal novo, o arquivo *bashrc* é executado, isso porque ele é um arquivo de inidicalização do *shell*. E nele existem diversos comandos em *shell script* que configuram certas preferências do terminal. Então, se escrevermos os *apelidos* dentro desse arquivo, eles não deixarão de existir mais, mesmo iniciando outro terminal. Diante disso, basta escrever os *alias* da mesma maneira acima, mas dentro do *.bashrc* e salvar.
 
 **Variáveis Ambiente**
 
@@ -608,4 +608,29 @@ comando1 | comando2 | comando3 ... sinal_redirecionamento arquivo.extensão
 
 **Partições**
 
-Falando agora do disco de armazenamento
+Falando agora do disco de armazenamento, ele é dividido em **partições**, sendo esse número limitado pelo tipo de disco. Um disco tipo SCSI pode ter 16 partições por exemplo. As informações das partições são armazenadas na *MBR - Master Boot Recorder*.
+
+O kernel Linux descobre todos os discos ligados durante o momento de *boot* do sistema, sem a necessidade de arquivos préconfigurados para tal. Podemos ver as partições do disco com o seguinte shell script:
+
+```bash
+sudo /sbin/fdisk -l
+```
+
+> retorna as partições de disco
+
+Perceba:
+
+- Disco /dev/sda: tamanho -> isso é um disco
+
+    - /dev/sda1 -> é uma partição do disco *sda*
+
+Podemos modificar, criar ou excluir partições pelo terminal, ou de maneira gráfica com o **gparted**. É bem fácil e intuitivo
+
+O esqueça com 3 partição é o mais simples e comumente usado, possuindo a seguinte disposição:
+
+- /boot: de 100-200Mb, é onde fica o kernel do sistema e outros materiais relacionados sistema de *boot*. São arquivos vitais que raramente são modificados. É uma boa prática, e segura, manter essa partição saparada das demais.
+
+- /: contém todo necessário, desde arquivos de programas, arquivos de usuários, a aplicações.
+
+- swap: partição que funciona como *RAM*
+
