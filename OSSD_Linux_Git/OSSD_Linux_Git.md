@@ -634,3 +634,61 @@ O esqueça com 3 partição é o mais simples e comumente usado, possuindo a seg
 
 - swap: partição que funciona como *RAM*
 
+**Tornando um arquivo executável**
+
+Vimos que uma das etapas é configurar a variável ambiente que se encontra o arquivo. Agora, temos que torná-lo executável. Para isso, vamos entender as **permissões** dos programas, digite no seu diretório:
+
+```bash
+ll
+```
+
+> drwxrwxr-x
+
+> -rw-rw-r--
+
+Essas são algumas das combinações que podem aparecer.
+
+- primeiro caractere:
+
+    - d -> diretório
+
+    - `-` -> arquivo
+
+    - l -> link
+
+- trio de caracteres:
+
+    - r -> *readable* pode ser lido
+
+    - w -> *writable* pode ser modificado
+
+    - x -> *executable* pode ser executável
+
+- ordem dos *trios*:
+
+    - rwx------ diz respeito às permissões para **usuário**
+
+    - ---rwx--- diz respeito às permissões para **grupo**
+
+    - ------rwx diz respeiro às permissões para **todos**
+
+Sabendo o significado das permissões, vamos modificá-las. Eu considero a maneira com números a mais fácil, e para aplicá-la, usamos o comando **chmod**:
+
+```bash
+chmod numero arquivo.extensão
+```
+
+Esse número é posui 3 caracteres, sendo cada um responsável pelas permissões de *usuário*, *grupo* e *todos*, e cada caracter corresponde à soma dos números da tabela abaixo:
+
+r|w|x
+:---:|:---:|:---:
+4|2|1
+
+Assim, se quisermos um arquivo com permissão **rwx** apenas para *usuário*, e **r** para *grupo* e *todos*
+
+```bash
+chmod 744 arquivo.extensão
+```
+
+#### Módulo 3
+
