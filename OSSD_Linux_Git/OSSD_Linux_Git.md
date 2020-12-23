@@ -692,3 +692,44 @@ chmod 744 arquivo.extensão
 
 #### Módulo 3
 
+caso seja necessário algum dia, utilize o comando:
+
+```bash
+sudo systemctl start gdm
+```
+
+> inicia a interface gráfica do sistema operacional
+
+**Etapas de inicialização**
+
+- grub: permite a escolha do kernel, *distro*, partição que será inicializada
+
+- /sbin/init: chamado de **init**, é o primeiro processo à nivel de usuário que roda no sistema, e continua até ser desligado. Ele coordena as últimas etapas de *boot*, configura o ambiente e inicia o processo de *login*
+
+Para mostrar os estágios de inicialização, veja a tabela abaixo:
+
+![inicializacao](../imagens/init_levels.png)
+
+**Memória**
+
+O kernel Linux usa o sistema de *virtual memory*, pois é maior que a memória física. É possível ver como a memória está distribuída através do terminal:
+
+```bash
+free -m
+```
+
+> retorna a distribuição da memória RAM em Gb
+
+Para obter uma distribuição mais detalhada da memória, existe outro comando, que requer privilégios de *su*:
+
+```bash
+cat /proc/meminfo
+```
+> retorna um relatório mais elaborado da distribuição de memória
+
+É possível limpar a memória *cache*, e uma das maneiras necessita que esteja em modo *su*. Feito isso, basta digitar o seguinte comando:
+
+```bash
+/proc/sys/vm/drop_caches
+```
+
