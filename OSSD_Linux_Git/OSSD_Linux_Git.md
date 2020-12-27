@@ -756,3 +756,48 @@ Como eu uso uma *distro* baseada em Debian, vou escrever apenas sobre **dpkg** e
 Para facilitar, os comandos mais usados podem ser listados na imagem abaixo:
 
 ![gerencia](../imagens/gerencia.png)
+
+**Usuários Linux**
+
+Todos usuários linux são associados a um ID único, sendo estes números inteiros, em que o primeiro usuário ganha o ID 1000, e o próximo 1001 e por aí vai. Pode-se ver através do comando:
+
+```bash
+sudo gedit /etc/passwd
+```
+
+> george:x:1000:1000:George Metesky:/home/george:/bin/bash
+
+- *george* -> o nome do usuário
+
+- *x* -> senha
+
+- *1000* -> ID do usuário
+
+- *1000* -> ID do Grupo Primário
+
+- *George Metesky* -> nome completo do usuário, mas pode ser que apareça valores diferentes
+
+- */home/george* -> diretório **HOME** do usuário
+
+- */bin/bash* -> *shell* padrão do usuário, mas pode aparecer outro
+
+Também é possível ver alguns outros *users* que não correspondem a usuários reais, mas são entidades importantes usadas por certas funções e programas.
+
+Agora, quando se trata de um grupo, cada um deles também recebe um ID único.
+
+```bash
+sudo gedit /etc/group
+```
+
+> fuse:x:106:root, george
+
+- *fuse* -> nome do grupo
+
+- *x* -> senha
+
+- *106* -> ID do grupo
+
+- *root, george* -> usuários membros do grupo *fuse*
+
+**Grupos** são usados para estabelecer conjuntos de regras, privilégios e segurança aos usuários membros. O acesso a determinados diretórios e programas também é configurado através dos grupos.
+
