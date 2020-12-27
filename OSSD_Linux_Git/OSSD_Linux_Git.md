@@ -743,3 +743,16 @@ uname -r
 
 > retorna a versão do kernel utilizada
 
+#### Módulo 5
+
+**Gerenciador de Pacotes**
+
+Como eu uso uma *distro* baseada em Debian, vou escrever apenas sobre **dpkg** e **apt**
+
+- **dpkg**: gerenciador de pacotes de *baixo nível*. Caso vc tenha um arquivo com extensão **.deb**, é possível gerenciá-lo com o *dpkg*.
+
+- **apt**: também conhecido como *apt-get*, é outro gerenciador de pacotes de *distros* baseadas em Debian. Ele é *alto nível* e funciona à base de repositórios.
+
+Para facilitar, os comandos mais usados podem ser listados na imagem abaixo:
+
+![gerencia](../imagens/gerencia.png)
