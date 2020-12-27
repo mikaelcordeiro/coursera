@@ -733,3 +733,13 @@ cat /proc/meminfo
 /proc/sys/vm/drop_caches
 ```
 
+#### Módulo 4
+
+Para consultar qual versão do Kernel, basta escrever o seguinte comando:
+
+```bash
+uname -r
+```
+
+> retorna a versão do kernel utilizada
+
