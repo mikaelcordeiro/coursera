@@ -799,5 +799,99 @@ sudo gedit /etc/group
 
 - *root, george* -> usuários membros do grupo *fuse*
 
+Podemos ver informações sobre usuário com o comando:
+
+```bash
+id
+```
+
+> uid=1000(george) gid=1000(george) groups=106(fuse),1000(george)
+
+Podemos ver a que grupo um usuário pertence com o seguinte comando:
+
+```bash
+groups nome_usuario
+```
+> *nome_usuario*: grupos que *nome_usuario* pertence
+
 **Grupos** são usados para estabelecer conjuntos de regras, privilégios e segurança aos usuários membros. O acesso a determinados diretórios e programas também é configurado através dos grupos.
+
+**Adicionar e Remover Usuários e Grupos**
+
+Para adicionar um novo usuário:
+
+```bash
+sudo useradd -p -m nome_usuario
+```
+
+> adiciona *nome_usuario*, dá a possibilidade de cadastro de senha e cria-se um HOME para ele
+
+Caso não tenha usado *-p*, é possível criar uma senha para o novo usuário da seguinte maneira:
+
+```bash
+sudo passwd nome_usuario
+```
+> será solicitada introdução de cadastro de senha para *nome_usuario*
+
+Para deletar um usuário:
+
+```bash
+sudo userdel -r nome_usuario
+```
+
+> deleta *nome_usuario* e o diretório HOME associado a ele
+
+Para adicinar um novo grupo:
+
+```bash
+sudo groupadd nome_grupo
+```
+
+Para remover:
+
+```bash
+sudo groupdell nome_grupo
+```
+
+Pada adicionar um usuário a um grupo, temos:
+
+```bash
+sudo usermod -aG nome_grupo nome_usuario
+```
+
+Para remover um usuário de um grupo:
+
+```bash
+sudo usermod -G nome_grupo nome_usuario
+```
+
+> retira *nome_usuario* de *nome_grupo*
+
+Por fim, para entrar na conta de outro usuário, basta usar o seguinte comando:
+
+```bash
+su nome_usuario
+```
+ou
+
+```bash
+ssh nome_usuario
+```
+
+> será solicitada a senha de *nome_usuario*
+
+Quando feito, se olharmos o que tem dentro do HOME de *nome_usuario*, perceberemos que existirão alguns conhecidos nossos, como *.bashrc*, *.cache*, *bash_logout*, ... E, para sair, é só digitar:
+
+```bash
+exit
+```
+
+## Curso 3: Linux Tools for Developers
+##### Professor: Jerry Cooperstein
+
+##### Nesse curso, nos concentraremos em como usar as ferramentas Linux para tarefas diárias, tudo dentro das linhas de comando do Shell Script, além de passarmos por compiladores, como **gcc**.
+
+### Anotações
+
+#### Módulo 1
 
