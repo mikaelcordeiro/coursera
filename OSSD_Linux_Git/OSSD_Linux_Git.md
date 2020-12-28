@@ -895,3 +895,117 @@ exit
 
 #### Módulo 1
 
+**Comandos Úteis**
+
+Para trabalhar com desenvoltura pelo terminal, existem alguns comandos bem úteis, e eles são demostrados na imagem:
+
+![comandos](../imagens/comandos.png)
+
+**ls**
+
+```bash
+ls path
+```
+
+> retorma uma lista de arquivos contidos no *path*
+
+Temos também **la** e **ll**. O primeiro retorna até os arquivos escondidos, já o segundo retorna também as permissões de cada arquivo
+
+**rm**
+
+```bash
+rm path/nome_arquivo.extensão
+```
+
+> exclui o arquivo *nome_arquivo.extensão*
+
+**mv**
+
+```bash
+mv path/nome_arquivo.extensão novo_path/nome_arquivo.extensão
+```
+
+> move *path/nome_arquivo.extensão* para *novo_path/nome_arquivo.extensão*
+
+Repare: se não modificar o *path*, mas modificar *nome_arquivo.extensão* somente, muda-se somente o nome do arquivo
+
+**cp**
+
+```bash
+cp path/nome_arquivo.extensão novo_path/nome_arquivo.extensão
+```
+
+> copia *path/nome_arquivo.extensão* para *novo_path/nome_arquivo.extensão*
+
+**mkdir**
+
+```bash
+mkdir path/nome_diretorio
+```
+
+> cria um diretório *nome_diretorio* no *path*
+
+**rmdir ou rm -rf**
+
+```bash
+rmdir path/nome_diretorio
+```
+
+> exclui o diretório *nome_diretorio* do *path*
+
+**file**
+
+```bash
+file path/arquivo.extensao
+```
+
+> mostra o tipo do *arquivo.extensao* no *path*
+
+**grep**
+
+```bash
+grep "padrão" path/arquivo.extensão
+```
+
+> mostra as linhas do *arquivo.extensão*, no *path*, que contém o "padrão"
+
+Esse comando vale a pena mostrar algumas de suas *options*
+
+![opcoes](../imagens/opcoes_grep.png)
+
+**find**
+
+```bash
+find path -name "padrão"
+```
+
+> encontra arquivos no *path* com nomes que correspondem ao "padrão"
+
+**sed**
+
+Esse comando serve para **substituir** caracteres por outros dentro de um arquivo
+
+```bash
+sed s/"padrao 1"/"padrao 2"/g path/arquivo.extensao > path/novo_arquivo.extensao
+```
+- **s** -> substituir
+
+- **"padrão 1"** -> padrão a ser substituído
+
+- **"padrão 2"** -> padrão que vai substituir
+
+- **g** -> global. Significa que haverá substituição todas as vezes que o "padrão 1" for encontrado. Caso não coloque o *g*, vai substituir apenas na primeira aparição.
+
+Caso queira fazer substituições a mais de um padrão, temos:
+
+```bash
+sed -e s/"padrão 1"/"padrão 2"/g -e s/"padrão 3"/"padrão 4"/g path/arquivo.extensão > path/novo_arquivo.extensão
+```
+
+Creio que já foi possível perceber que o comando **sed** gera um *output*. Podemos usar **pipelines** que se relacionam com saídas de comandos também. Veja:
+
+```bash
+echo "oi mundo" | sed s/"oi"/"tchau"/g > path/arquivo.extensao
+```
+
+> escreve no arquivo *arquivo.extensao*, do *path*, o *output* do comando *echo* já com as devidas substituições
