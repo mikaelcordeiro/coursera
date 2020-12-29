@@ -506,13 +506,19 @@ echo hello world again! >> arquivo.sh
 
 - **cat**
 
-Esse comando é mais versátil, é possivel **ler** e **escrever** num determinado arquivo. Se fizermos o seguinte script:
+Vem de *concatenar*. É um comando versátil que possibilita **leitura** e **escrita** num determinado arquivo, além de concatenar mais de um deles. Se fizermos o seguinte script:
 
 ```bash
 cat arquivo.sh
 ```
 
 > será mostrado no terminal o conteúdo do *arquivo.sh*
+
+```bash
+cat arquivo1.sh arquivo2.sh
+```
+
+> será mostrado no terminal o conteúdo do *arquivo1.sh* e *arquivo2.sh* de maneira concatenada
 
 Agora, se usarmos um dos sinais de redirecionamento, o terminal dará a possibilidade de escrevermos várias linhas de uma vez:
 
@@ -996,6 +1002,15 @@ sed s/"padrao 1"/"padrao 2"/g path/arquivo.extensao > path/novo_arquivo.extensao
 
 - **g** -> global. Significa que haverá substituição todas as vezes que o "padrão 1" for encontrado. Caso não coloque o *g*, vai substituir apenas na primeira aparição.
 
+Note:
+
+```bash
+sed -i 1,3s/"padrao 1"/"padrao 2"/g path/arquivo.extensao
+```
+- **-i** -> faz as substituiçoes no mesmo *arquivo.extensao*
+
+- **1,3s** -> faz as devidas substituições apenas no *range* de linhas 1 a 3
+
 Caso queira fazer substituições a mais de um padrão, temos:
 
 ```bash
@@ -1009,3 +1024,89 @@ echo "oi mundo" | sed s/"oi"/"tchau"/g > path/arquivo.extensao
 ```
 
 > escreve no arquivo *arquivo.extensao*, do *path*, o *output* do comando *echo* já com as devidas substituições
+
+**Manipulando Arquivos de Texto**
+
+<< *heredoc* serve como *sinal de parada* para introdução de textos. Exemplo:
+
+```bash
+cat > arquivo.extensao << EOF
+```
+
+> o comando *cat* para de receber *inputs* pelo terminal quando recebe uma linha escrito *EOF*. Isso significa *End of File*. É uma convenção, mas nao precisa ser *EOF* necessariamente, poderia ser *parada*, *STOP*, ...
+
+**sort**
+
+```bash
+sort options arquivo.extensao
+```
+options:
+
+- sem option
+
+> retorna um *standard output* com as linhas em ordem de acordo com a primeira letra de cada linha
+
+- **-k 3**
+
+> retorna um *standard output* com as linhas ordenadas de acordo com o *terceiro* caracter de cada linha
+
+- **-r**
+
+> retorna um *standard output* com as linhas ordenadas de maneira inversa de acordo com o *primeiro* caractere de cada linha
+
+- **-u**
+
+> retorna um *standard output* ordenado já revisado se existem linhas duplicadas
+
+**uniq**
+
+```bash
+uniq option arquivo.extensao
+```
+options
+
+- sem option
+
+> retorna somente os valores únicos de *arquivo.extensao*
+
+- **-c**
+
+> retorna a contagem do número de linhas diplicadas em *arquivo.extensao*
+
+**Lidando com Arquivos de Texto GRANDES**
+
+Como se sabe, todo arquivo executado é carregado na memória RAM do computador. Às vezes, pode ser que ele seja grande demais e o sistema trave ou fique lento. Diante disso, temos o comando **less**. Ele ajuda a carregar arquivos, mas de uma maneira rápida e leve, mais que um editor de texto pelo menos. Seu uso é simples:
+
+```bash
+less arquivo.extensao
+```
+
+> retorna o conteúdo de *arquivo.extensão*, mas sem carregá-lo totalmente
+
+O comando **head** e **tail** servem, respectivamente, para ver o conteúdo inicial e final de um arquivo
+
+```bash
+head arquivo.extensao
+```
+> retorna as 10 primeiras linhas de *arquivo.extensao*
+
+```bash
+head -5 arquivo.extensao
+```
+
+> retorna as 5 primeiras linhas de *arquivo.extensao*
+
+O **tail** funciona igual. Porém, ele tem uma *option* muito interessante:
+
+```bash
+tail -f arquivo.extensao
+```
+
+> faz a *standard output* gerar continuamente os últimos valores de *arquivo.extensao*
+
+**Arquivos Comprimidos**
+
+Para arquivos **comprimidos** temos uma listinha de comandos parecidos com o que já vimos:
+
+![comandos_zip](../imagens/arquivos_zip.png)
+
