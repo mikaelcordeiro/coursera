@@ -979,6 +979,16 @@ Esse comando vale a pena mostrar algumas de suas *options*
 
 ![opcoes](../imagens/opcoes_grep.png)
 
+![opcoes2](../imagens/opcoes_grep2.png)
+
+**string**
+
+```bash
+string arquivo.extensao | grep "padrao"
+```
+
+> retona um *standard output* das linhas do *arquivo.extensao* que contém o "padrao". A diferença é que o comando *string* funciona para extensões *non human-readable*, como uma planilha de excel por exemplo. Ela é fácil de ler quando dentro do excel, mas fora dele não é humanamente possível
+
 **find**
 
 ```bash
@@ -1024,6 +1034,20 @@ echo "oi mundo" | sed s/"oi"/"tchau"/g > path/arquivo.extensao
 ```
 
 > escreve no arquivo *arquivo.extensao*, do *path*, o *output* do comando *echo* já com as devidas substituições
+
+**tr**
+
+Esse comando dá um passo além do **sed**, é possível fazer mais que só substituir um padrão por outro, podemos excluir também.
+
+```bash
+cat arquivo.extensao | tr option "padrao 1" "padrao 2"
+```
+
+> retorna um *standard output* de *arquivo.extensao* com as ocorrencias de *padrao 1* trocadas por *padrao 2*
+
+Podemos ver mais formas de usar esse comando na seguinte imagem
+
+![tr](../imagens/comando_tr.png)
 
 **Manipulando Arquivos de Texto**
 
@@ -1073,6 +1097,35 @@ options
 
 > retorna a contagem do número de linhas diplicadas em *arquivo.extensao*
 
+**paste**
+
+```bash
+paste option arquivo1 arquivo2
+```
+
+- sem option
+
+> retorna um *standard output* com *arquivo1* e *arquivo2* combinados, não é um *append*
+
+- **-d"delimitador"**
+
+> retorna um *standard output* com *arquivo1* e *arquivo2* combinados, separados pelo *"delimitador"*
+
+**join**
+
+```bash
+join -t"delimitador" arquivo1 arquivo2
+```
+
+> retorna um *standard output* que combina colunas usando *"delimitador"* como separador de colunas, mas sem repetir as duplicadas
+
+**cut**
+
+```bash
+cut -d"delimitador" -f3 arquivo.extensao
+```
+> retorna a coluna 3 de *arquivo.extensao*, sendo que esse arquivo delimita as colunas com o *"delimitador"*
+
 **Lidando com Arquivos de Texto GRANDES**
 
 Como se sabe, todo arquivo executado é carregado na memória RAM do computador. Às vezes, pode ser que ele seja grande demais e o sistema trave ou fique lento. Diante disso, temos o comando **less**. Ele ajuda a carregar arquivos, mas de uma maneira rápida e leve, mais que um editor de texto pelo menos. Seu uso é simples:
@@ -1103,6 +1156,12 @@ tail -f arquivo.extensao
 ```
 
 > faz a *standard output* gerar continuamente os últimos valores de *arquivo.extensao*
+
+Podemos *cortar* arquivos grandes também com o comando **split**. Ele retornará diversos arquivos derivados com o mesmo número de linhas cada, ou quase o mesmo:
+
+```bash
+split arquivo.extensao
+```
 
 **Arquivos Comprimidos**
 
