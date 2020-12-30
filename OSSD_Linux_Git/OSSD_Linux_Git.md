@@ -1169,3 +1169,19 @@ Para arquivos **comprimidos** temos uma listinha de comandos parecidos com o que
 
 ![comandos_zip](../imagens/arquivos_zip.png)
 
+**Shell Script Básico**
+
+Como padrão, um shell script tem o seguinte nome: **nome.sh**, sendo a sua extensão o que designa que esse programa é um shell script. Para executar um programa, não só um desse, mas qualquer um em geral, existem duas maneiras:
+
+```bash
+/usr/bin/bash arquivo.sh
+```
+> o interpretador *bash* vai executar o programa *arquivo.sh*
+ou 
+
+```bash
+arquivo.sh
+```
+
+> para que esse execute, o *arquivo.sh* deve estar num diretório inserido no *$PATH*, ter permissão de *executável*, e ter na sua primeira linha o famoso **shebang** -> `#!/usr/bin/bash`. Ele serve para dizer onde está o interpretador para esse *arquivo.sh*. De maneira geral, isso tudo não funciona só para arquivos *.sh*, mas para qualquer programa que possua um executável
+
