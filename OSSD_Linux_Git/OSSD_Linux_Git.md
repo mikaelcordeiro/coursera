@@ -1177,7 +1177,6 @@ Como padrão, um shell script tem o seguinte nome: **nome.sh**, sendo a sua exte
 /usr/bin/bash arquivo.sh
 ```
 > o interpretador *bash* vai executar o programa *arquivo.sh*
-ou 
 
 ```bash
 arquivo.sh
