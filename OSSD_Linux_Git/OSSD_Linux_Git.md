@@ -1184,3 +1184,13 @@ arquivo.sh
 
 > para que esse execute, o *arquivo.sh* deve estar num diretório inserido no *$PATH*, ter permissão de *executável*, e ter na sua primeira linha o famoso **shebang** -> `#!/usr/bin/bash`. Ele serve para dizer onde está o interpretador para esse *arquivo.sh*. De maneira geral, isso tudo não funciona só para arquivos *.sh*, mas para qualquer programa que possua um executável
 
+- Operadores Lógicos
+
+OR|AND|EQUAL|DIFFERENT|IN|BIGGER|SMALLER|SMALLER OR EQUAL|BIGGER OR EQUAL
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+`||`|`&&`|`==`|`!=`|`=~`|`>`|`<`|`-le`|`-ge`
+
+- Condicional com Arquivos
+![comparacao](../imagens/arq_condicional.png)
+
+- 
