@@ -1186,11 +1186,12 @@ arquivo.sh
 
 - Operadores Lógicos
 
-OR|AND|EQUAL|DIFFERENT|IN|BIGGER|SMALLER|SMALLER OR EQUAL|BIGGER OR EQUAL
-:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
-`||`|`&&`|`==`|`!=`|`=~`|`>`|`<`|`-le`|`-ge`
+OR|AND|EQUAL STRING|EQUAL EXPRESSION|DIFFERENT STRING|DIFFERENT EXPRESSION|IN|BIGGER|SMALLER|SMALLER OR EQUAL|BIGGER OR EQUAL
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+`||`|`&&`|`==`|`-eq`|`!=`|`-ne`|`=~`|`-gt`|`-lt`|`-le`|`-ge`
 
 - Condicional com Arquivos
+
 ![comparacao](../imagens/arq_condicional.png)
 
 - 
