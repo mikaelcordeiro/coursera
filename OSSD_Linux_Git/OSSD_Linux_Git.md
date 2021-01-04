@@ -1194,4 +1194,79 @@ OR|AND|EQUAL STRING|EQUAL EXPRESSION|DIFFERENT STRING|DIFFERENT EXPRESSION|IN|BI
 
 ![comparacao](../imagens/arq_condicional.png)
 
-- 
+#### Módulo 2
+
+**Tipos de Arquivos**
+
+Como já mencionado, existem tipos diferentes de arquivos, e aqui vai uma tabela mais completa deles
+
+![tipos](../imagens/tipos_arquivos.png)
+
+mais uma vez, caso queira ver os tipos dos arquivos num diretório, basta usar o segunte comando:
+
+```bash
+ll
+```
+
+> mostra diversar informações sobre cada arquivo dentro do diretório, sendo os tipos de arquivos uma dessas informações, sendo o primeiro caracter antes dos *trios de permissões*
+
+**Como trocar Proprietário e Grupo de um Arquivo**
+
+Já vimos também como criar/excluir usuários e grupos, agora veremos como trocar essas informações em um arquivo.
+
+Caso tenha percebido: **tudo no linux é um arquivo**. Essa máxima é quase certa, salvo algumas excessões como sempre. E todo arquivo, creio eu, tem um proprietário e grupo. Para modificá-los, basta:
+
+- **proprietário**
+
+```bash
+chown proprietario arquivo
+```
+
+> O *arquivo* terá como proprietário o *proprietario*
+
+- **grupo**
+
+```bash
+chgrp grupo arquivo
+```
+
+> O *arquivo* terá como grupo o *grupo*
+
+É possível trocar os dois de uma só vez:
+
+```bash
+chown proprietario.grupo arquivo
+```
+
+ou
+
+```bash
+chown proprietario:grupo aarquivo
+```
+
+> Agora, o *arquivo* tem como proprietário *proprietário* e *grupo* como grupo
+
+Por fim, é possível usar a *option* **-R** que significa **recursividade**. Ou seja, tudo que estiver dentro, hierarquicamente falando, do arquivo, receberá tais mudanças de grupo ou proprietário
+
+```bash
+chown -R proprietario.grupo .
+```
+
+> Tudo dentro do diretório atual terá *proprietário* e *grupo*
+
+```bash
+chown -R proprietario.grupo diretorio
+```
+
+> Tudo dentro do *diretorio* terá *proprietario* e *grupo*
+
+Note: caso o usuário não seja proprietário, ou não pertença ao grupo do arquivo, só será possível trocar essas informações com **sudo**, desde que o usuário tenha permissão também.
+
+**Arquivos de Sistema**
+
+Para ver os arquivos de sistema:
+
+```bash
+df -h
+```
+
