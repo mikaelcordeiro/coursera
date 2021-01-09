@@ -1269,4 +1269,22 @@ Para ver os arquivos de sistema:
 ```bash
 df -h
 ```
+## Curso 4: Using Git for Distributed Development
+##### Professor: Jerry Cooperstein
+
+##### Nesse curso, será apresentada uma introdução de como versionar projetos com **Git**.
+
+### Anotações
+
+#### Módulo 1
+
+**Instalando o versionador Git**
+
+Primeiro, deve-se instalar o **Git**. Então:
+
+```bash
+sudo apt install git
+```
+
+> Existem algumas *options* que podem ser passadas para instalar mais coisas, mas essa forma acima já atende muita coisa
 
