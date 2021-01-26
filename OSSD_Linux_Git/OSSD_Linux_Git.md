@@ -1288,3 +1288,101 @@ sudo apt install git
 
 > Existem algumas *options* que podem ser passadas para instalar mais coisas, mas essa forma acima já atende muita coisa
 
+**Comandos Básicos de Git**
+
+```bash
+git --version
+```
+
+> retorna a versão do git instalado
+
+Para versionar um projeto, devemos iniciar o versionamento. E para tanto:
+
+```bash
+git init
+```
+
+> cria um diretório **.git** dentro do diretório do projeto. Assim, tudo que estiver dentro do diretório do projeto será versionado
+
+Feito isso, devemos configurar os usuários do reposítório, e podemos fazer isso *globalmente* ou *para o projeto*
+
+- global
+
+```bash
+git config --global user.name "nome"
+
+git config --global user.email "email"
+```
+
+> todos os projetos versionados com git terão como proprietário *nome* e email *email*
+
+- projeto
+
+```bash
+git config user.name "nome"
+
+git config user.email "email"
+```
+
+> *nome" será responsável por esse único repositório
+
+**Ciclo de Vida no Git**
+
+Quando criamos/modificamos algum arquivo num diretório versionado, essa informação possui um *ciclo de vida*:
+
+![ciclo](../imagens/git_cycle.png)
+
+- Untracked: quando adicionamos um arquivo novo no diretório versionado, ele ainda não "foi visto" pelo git
+
+- Unmodified: arquivo já monitorado pelo versionador local que não apresenta nenhuma modificação
+
+- Modified: arquivo monitorado que foi mododificado
+
+- Staged: arquivo pronto para ser *commitado*
+
+Para entender melhor, podemos criar um arquivo dentro de um diretório versionado:
+
+```bash
+echo "Hello" > teste.txt
+```
+
+criado o arquivo *teste.txt*, podemos dar um:
+
+```bash
+git status
+```
+
+> mostrará o status do repositório local do projeto
+
+Nesse caso, veremos que aparecerá uma mensagem dizendo que *teste.txt* está **untracked**, isso porque esse arquivo acabou de ser criado dentro do projeto. Para mudar esse status, devemos fazer o git rastrear esse arquivo. Então:
+
+```bash
+git add teste.txt
+```
+
+> foi dito ao git para **adicionar** *teste.txt* ao versionamento. Isso faz com que ele passe direto para o status de **staged**. E para modificar esse status:
+
+```bash
+git commit -m "mensagem explicativa sobre o commit"
+```
+
+> cria-se o primeiro nodo no grafo de commits. Agora, o *teste.txt* foi para o estágio de **unmodified**
+
+Esse é o ciclo de vida mais simples de um arquivo. Podemos ver tanto os nodos quanto o grafo de commits usando o comando:
+
+```bash
+git log
+```
+
+> retorna os commits feitos, suas hashs, os textos explicativos, quem fez o commit e a que dia/hora, tudo isso numa espécie de **grafos**
+
+Agora, caso seja feita alguma mudança nos arquivos monitorados, eles sempre sairão de **modified** para **staged**. Caso seja feita alguma mudança, sem levá-la para **staged**, podemos ver as mudanças feitas com o comando:
+
+```bash
+git diff
+```
+
+> retorna o que foi modificado no arquivo. O sinal de *+* representa o que foi acrescentado, já *-* o que foi retirado. Lembre-se: esse comando não mostra as modificações caso já tenha sido dado *add* no arquivo.
+
+#### Módulo 2
+
