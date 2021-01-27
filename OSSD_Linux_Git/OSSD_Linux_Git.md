@@ -1384,5 +1384,43 @@ git diff
 
 > retorna o que foi modificado no arquivo. O sinal de *+* representa o que foi acrescentado, já *-* o que foi retirado. Lembre-se: esse comando não mostra as modificações caso já tenha sido dado *add* no arquivo.
 
+Sempre que queremos renomear ou excluir algum arquivo, usamos os comandos *mv* ou *rm*. Mas quando fazemos isso num diretório que está sendo versionado, podemos fazer com comandos git também:
+
+```bash
+git mv nome_antigo nome_novo
+```
+
+> Vai renomear o arquivo *nome_antigo* para *nome_novo*
+
+```bash
+git rm arquivo
+```
+
+> vai excluir tanto o arquivo quanto as informações sobre ele no versionamento
+
+Lembre-se: para validar esses comandos *git mv* e *git rm*, deve-se *commitá-los*
+
 #### Módulo 2
+
+**Forking**
+
+Quando disponibilizamos um programa/arquivo num repositório remoto, devemos escolher uma licença que respeite o que eu permito que seja feito com os códigos, bem como o projeto em si. Caso a licença permita que outros contribuam, é possível fazer um **fork**. Isso significa *copiar* o projeto num repositório próprio. Feito isso, é possível propor novas funcionalidades, corrigir bugs... Tudo isso sem que o projeto seja seu propriamente dito (se a licença permitir é possível também).
+
+**Pull Request**
+
+Quando fazemos um **fork** e modificamos algo, temos a possibilidade de propor ao proprietário do projeto que aceita tais mudanças, e para tanto, devemos fazer um **pull request**. Feito isso, o proprietário verá se a mudança implementada faz sentido, se fizer, ele pode incorporar tal mudança no projeto.
+
+**.gitignore**
+
+Como o próprio nome diz, é um arquivo que diz para o *git* **ignorar**. Pode ignorar um arquivo específico, podem ser vários, como uma extensão por exemplo:
+
+```bash
+cat > .gitignore << EOF
+
+*.csv
+!nomes.csv
+EOF
+```
+
+> Aqui foi feito um *.gitignore* que diz ao versionador para ignorar todos os arquivos *.csv*, exceto *nomes.csv*
 
