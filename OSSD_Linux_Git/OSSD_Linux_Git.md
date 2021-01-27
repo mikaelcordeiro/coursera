@@ -1424,3 +1424,4 @@ EOF
 
 > Aqui foi feito um *.gitignore* que diz ao versionador para ignorar todos os arquivos *.csv*, exceto *nomes.csv*
 
+testando
