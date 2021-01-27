@@ -1400,14 +1400,6 @@ git rm arquivo
 
 Lembre-se: para validar esses comandos *git mv* e *git rm*, deve-se *commitá-los*
 
-```bash
-git revert opção
-```
-
-- HEAD -> desfaz o último *commit*, voltando a um *commit* anterior
-
-- 
-
 #### Módulo 2
 
 **Forking**
