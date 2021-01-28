@@ -1400,6 +1400,52 @@ git rm arquivo
 
 Lembre-se: para validar esses comandos *git mv* e *git rm*, deve-se *commitá-los*
 
+**Revertendo Commits**
+
+```bash
+git revert opção
+```
+
+opção:
+
+- HEAD -> desfaz o último *commit*, levando ao estado anterior a ele
+
+- HEAD~2 -> desfaz os dois últimos *commits*, levando ao terceiro estado anterior a ele
+
+- hash number -> retorna ao *commit* especificado pela hash
+
+> Note: quando se usa o *revert*, gera-se um novo *commit*, embora retorne ao estado desejado
+
+```bash
+git reset --hard opção
+```
+
+opção:
+
+- HEAD -> desfaz, e exclui, o último o *commit*, levando ao estado anterior a ele
+
+- HEAD~2 -> desfaz, e exclui, os dois últimos *commits*, levando ao terceiro estado anterior a ele
+
+- hash number -> retorna ao *commit* especificado pela hash, excluindo todos *commits* posteriores a essa hash
+
+> Usar *reset --hard* não gera um novo *commit*, simplesmente apaga
+
+**Transitar pelos Commits**
+
+Quando geramos um *commit*, cria-se um novo estado no **grafo de commits**. Esse grafo apresenta uma espécie de *ponteiro* que indica qual o estado atual da aplicação, esse ponteiro chama-se **HEAD**. Caso dê um *git log --oneline*, verá que um dos *commits* possui um
+
+`(HEAD -> master)`
+
+isso significa que esse é o estado atual da aplicação, e esse *commit* pertence ao ramo **master**. Mas a graça do *git* é possível transitar pelos estados de um ramo. E para tal:
+
+```bash
+git checkout hash
+```
+
+> retorna a aplicação ao estado especificado pela *hash*. Não exclui nada, apenas movimenta o ponteiro para o estado desejado.
+
+
+
 #### Módulo 2
 
 **Forking**
