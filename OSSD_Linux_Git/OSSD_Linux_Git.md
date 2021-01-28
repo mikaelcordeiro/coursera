@@ -1474,6 +1474,58 @@ Como vimos, um *commit* apresenta um ciclo de vida. Mas dentro desse ciclo, pode
     git checkout nome_arquivo
     ```
 
+**Branch**
+
+No versionador, existe um conceito muito interessante de se acompanhar o andamento dos *commits*, como se fossem *ramos* de um tronco de árvore, sendo o tronco central chamado de **master**. Para *ver* isso, basta:
+
+```bash
+git log --graph
+```
+
+> retornará um desenho esquemático dos *commits*. E onde o **HEAD** apontar, terá uma setinha indicando em que **branch** pertence o estado atual do projeto `(HEAD -> master)`
+
+Porém, é possível criar novos ramos a partir de qualquer estado da *master*. Podemos usar o *git checkout hash* para chegar no estado desejado, e em seguida:
+
+```bash
+git branch nome_ramo
+```
+
+> criará, a partir do *commit* especificado pela *hash*, um novo ramo
+
+Criado o ramo, podemos sair da *master* e ir para *nome_ramo*:
+
+```bash
+git checkout nome_ramo
+```
+
+> desloca o ponteiro **HEAD** para o ramo *nome_ramo*
+
+Para verificar em qual *branch* o **HEAD** está, temos:
+
+```bash
+git branch
+```
+
+> retorna todos os *branchs*, e com o símbolo *, mostra qual o ramo está o **HEAD**
+
+Para voltar ao ramo **master**:
+
+```bash
+git checkout master
+```
+
+> retorma ao último *commit* do ramo master
+
+Para excluir um *branch*, devemos estar com o **HEAD** na **master**. Então:
+
+```bash
+git checkout master
+
+git branch -d nome_ramo
+```
+
+> exclui o *nome_ramo*
+
 #### Módulo 2
 
 **Forking**
