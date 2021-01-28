@@ -1444,7 +1444,35 @@ git checkout hash
 
 > retorna a aplicação ao estado especificado pela *hash*. Não exclui nada, apenas movimenta o ponteiro para o estado desejado.
 
+```bash
+git checkout master
+```
 
+> faz com que volte ao último *commit*.
+
+**Voltando etapas do ciclo de vida de um commit**
+
+Como vimos, um *commit* apresenta um ciclo de vida. Mas dentro desse ciclo, podemos fazer coisa errada e querer voltar/desfazer. Assim:
+
+- Unmodified -> Modified
+
+    quando modificamos um arquivo, **SEM DAR *GIT ADD***, ele muda para o estágio de **modified**, e podemos acompanhar as mudanças com o *git diff*. Caso queiramos desfazer as mudanças, todas elas, e voltar para o estágio de **unmodified**, devemos:
+
+    ```bash
+    git checkout nome_arquivo
+    ```
+
+    > desfaz tudo que foi modificado
+
+- Modified -> Staged
+
+    Aqui já foi dado *git add* nas mudanças, ou seja, mudou-se de **modified** para **staged**. Nesse caso, o *git diff* não funciona mais, e para reverter ao estágio de **modified**, para depois voltar para **unmodified**:
+
+    ```bash
+    git reset HEAD
+
+    git checkout nome_arquivo
+    ```
 
 #### Módulo 2
 
@@ -1469,4 +1497,32 @@ EOF
 ```
 
 > Aqui foi feito um *.gitignore* que diz ao versionador para ignorar todos os arquivos *.csv*, exceto *nomes.csv*
+
+**Tamanho e Compactação do diretório .git**
+
+À medida que um repositório vai ficando grande, junto com o projeto, o diretório *.git* também cresce. Podemos ver seu tamanho da seguinte maneira:
+
+```bash
+du -shc path
+```
+
+> basta colocar o path do diretório *.git* para sabermos seu tamanho
+
+Caso esteja muito grande, é possível otimizar o *.git*:
+
+```bash
+git gc
+```
+
+> vai diminuir o tamanho de *.git*
+
+**Rastreio de quem modificou o que num arquivo**
+
+Caso queira saber quem modificou um arquivo, e o que foi modificado:
+
+```bash
+git blame nome_arquivo
+```
+
+> retorna, linha a linha de código, quem modificou o que no *nome_arquivo*
 
