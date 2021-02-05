@@ -1578,3 +1578,28 @@ git blame nome_arquivo
 
 > retorna, linha a linha de código, quem modificou o que no *nome_arquivo*
 
+**Merge**
+
+De maneira simples, podemos *fundir* um ramo à outro, seja *branch* -> *master* ou *branch* -> *branch*. Para ambas situações, devemos estar com o **Head** sempre no *branch* que receberá o outro:
+
+- *branch2* -> *branch1*
+
+```bash
+git checkout branch1
+
+git merge branch2
+```
+
+> Mudou-se o *Head* para o *branch1* e depois fundiu *branch2* a ele
+
+- *branch* -> *master*
+
+```bash
+git checkout master
+
+git merge branch
+```
+
+> mesma coisa do exemplo anterior, só que agora fundiu um *branch na *master*
+
+Tem muito mais coisa quando se trata de *merging*, mas para evitar problema, crie um *branch* novo sempre que for implementar algo novo. E só modifique esse *branch* até terminar a implementação e testar. Feito isso, aí dê o *merge*. Assim evita dores de cabeça
