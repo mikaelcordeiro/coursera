@@ -1,0 +1,2 @@
+oi mundo # linha adicionada pelo HOST
+tchau mundo # linha adicionada pelo CONTAINER
