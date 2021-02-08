@@ -36,8 +36,6 @@ $ sudo apt-key fingerprint 0EBFCD88
 ```
 
 ```bash
-
-
 $ sudo add-apt-repository \
    "deb [arch=arm64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
@@ -190,4 +188,50 @@ $ docker run -d --name nome nome_imagem
 
 Agora, escreve-se *nome* do container invés de *CONTAINER_ID*
 
-**Criação de ambientes de desenvolvimento com Docker Volumes** 
+**Criação de ambientes de desenvolvimento com Docker Volumes**
+
+É importante saber esse conceito para **ligar** arquivos do *Host* com os **dentro** do container, pois sabemos que, uma vez destruído o container, tudo lá dentro é destruído também. Pode ser também que necessitemos mudar algum arquivo que roda no container, e se ele não estiver ligado fora do ambiente isolado, sempre teremos que criar uma imagem nova cada vez que esse arquivo muda.
+
+```bash
+$ docker run -d nome_imagem
+```
+
+> temos que criar um container para a imagem desejada
+
+```bash
+$ docker exec -ti container_ID bash
+```
+
+> temos que executar e *linkar* o terminal do *container_ID* com o terminal do host
+
+```bash
+# touch diretorio/arquivo
+# echo "oi mundo" > diretorio/arquivo
+# exit
+```
+
+> criado, dentro do container, o arquivo *~/teste/arquivo.txt*
+
+Como podemos perceber, não apareceu nenhuma pasta com o arquivo *~/teste/arquivo.txt* na *HOME*
+
+Agora, **vamos *linkar* um volume ao container**
+
+```bash
+$ docker run -d -v HOST_path:/CONTAINER_path imagem_ID
+```
+
+- HOST_path: caminho no **HOST** do diretório que vamos ligar
+
+- CONTAINER_path: caminho no **CONTAINER** do diretório que vamos ligar
+
+> cria um container da *imagem_ID* com o diretório *HOST_path* e *CONTAINER_path* ligados
+
+```bash
+$ docker exec -ti container_ID bash
+# ls CONTAINER_path
+```
+
+> mostrará os arquivos de *HOST_path* dentro de *CONTAINER_path*, já que eles estão ligados agora
+
+Se criarmos, ou modificarmos algum arquivo **dentro** de *CONTAINER_path*, eles aparecerão em *HOST_path*. Se fizermos o contrário, também vai dar certo devido ao *link* entre os diretórios
+
