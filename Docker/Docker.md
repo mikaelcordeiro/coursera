@@ -235,3 +235,42 @@ $ docker exec -ti container_ID bash
 
 Se criarmos, ou modificarmos algum arquivo **dentro** de *CONTAINER_path*, eles aparecerão em *HOST_path*. Se fizermos o contrário, também vai dar certo devido ao *link* entre os diretórios
 
+**Produção do Website dentro do conteiner**
+
+Vá para o diretório da aplicação web
+
+Agora, vamos *linkar* esse diretório com algum do container
+
+```bash
+$ docker run -d -p 8000:80 --name site -v $(pwd):/usr/share/nginx/html nginx
+```
+
+> roda um container da imagem *nginx*. Como já tinha-se mudado para o diretório da aplicação, bastou passar o diretório do *HOST* como $(pwd)
+
+```bash
+$ docker exec -ti site bash
+```
+
+> liga os terminais do container com o do HOST
+
+```bash
+# ls /usr/share/nginx/html
+```
+
+> mostrará os mesmos arquivos presentes no diretório da aplicação no HOST
+
+Visto que os arquivos estão presentes, vá no browser e acesse a porta ligada ao container
+
+```php
+localhost:8000
+```
+
+> a aplicaçao estará rodando
+
+**Nota**: caso a aplicação não rode:
+
+```bash
+$ chmod 766 APP_path
+```
+
+> será dada permissão de execução ao diretório da aplicação
