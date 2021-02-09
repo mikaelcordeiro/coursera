@@ -10,7 +10,7 @@
 
 **Como baixar o Docker?**
 
-1 - Entre no site do [Docker](docs.docker.com/install)
+1 - Entre no site do [Docker](https://docs.docker.com/get-docker/)
 
 2 - Escolha o SO
 
