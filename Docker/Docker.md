@@ -10,6 +10,14 @@
 
 **Como baixar o Docker?**
 
+0 - Caso esteja com preguiça:
+
+```bash
+$ sudo snap install docker
+```
+
+Agora, se não quiser fazer isso toda vez, basta seguir os passos abaixo
+
 1 - Entre no site do [Docker](https://docs.docker.com/get-docker/)
 
 2 - Escolha o SO
