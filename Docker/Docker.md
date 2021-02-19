@@ -86,7 +86,7 @@ $ docker pull nome_imagem
 
 > *nome_imagem* é a imagem que deseja rodar. Para esse curso, foi proposta a nginx
 
-**Criando um container para a imagem baixada**
+**Criando um container para a imagem baixada (docker run)**
 
 ```bash
 $ docker run nome_imagem
@@ -95,10 +95,22 @@ $ docker run nome_imagem
 > cria um container e roda *nome_imagem* dentro dele. Mas essa forma inutiliza a aba atual do terminal, pois passa a mostrar o server que roda o container
 
 ```bash
+$ docker run nome_imagem:tag
+```
+
+> gera um container de *nome_imagem* da versão referente à *tag*. Para ver as versões disponíveis de uma imagem, entre no site
+
+```bash
 $ docker run -d nome_imagem
 ```
 
 > cria um container e roda *nome_imagem* dentro dele sem inutilizar o terminal atual, pois faz o container rodar em segundo plano
+
+```bash
+$ docker run nome_imagem sleep tempo
+```
+
+> cria um container de *none_imagem* com ciclo de vida de *tempo* segundos
 
 **Comandos básicos**
 
@@ -163,6 +175,18 @@ $ docker image rm $(docker images -q)
 > exclui **todas** imagens pelas suas *image_IDs*.
 
 **Acesso ao container enquanto ele é executado**
+
+```bash
+$ docker exec container_ID comando
+```
+
+> executa *comando* dentro de *container_ID*. Se escolhessemos o comando *ls*, aparecia no CLI os diretórios de /
+
+```bash
+$ docker run -i nome_imagem
+```
+
+> cria um container de *nome imagem* de maneira **interativa**. Isso quer dizer que: caso a imagem necessite receber um *input* pelo terminal, ele será abilitado para receber o que a aplicação solicita
 
 ```bash
 $ docker exec -ti container_ID sh
@@ -282,3 +306,11 @@ $ chmod 766 APP_path
 ```
 
 > será dada permissão de execução ao diretório da aplicação
+
+**Inspecionar um container**
+
+```bash
+$ docker inspect container_ID
+```
+
+> retorna informações detalhadas sobre o *container_ID* no formato *.json*
