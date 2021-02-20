@@ -314,3 +314,20 @@ $ docker inspect container_ID
 ```
 
 > retorna informações detalhadas sobre o *container_ID* no formato *.json*
+
+**Criando as próprias IMAGENS**
+
+A criação de uma **imagem** é feita como uma *receita* chamada **Dockerfile**. Esse tipo de arquivo tem o mesmo propósito que um *Makefile*: é uma sequencia de instruções. E a sequencia é a seguinte:
+
+1- Escolha da imagem **BASE**
+
+2- Atualização dos repositórios *fonte*
+
+3- Instalaçao das dependencias do OS usando *apt*
+
+4- Instalação dos pacotes das dependencias do OS (Se for python, instalação dos pacotes com pip)
+
+5- Copia do código fonte para /opt folder
+
+6- Comando que faz a aplicação rodar
+
