@@ -317,17 +317,25 @@ $ docker inspect container_ID
 
 **Criando as próprias IMAGENS**
 
-A criação de uma **imagem** é feita como uma *receita* chamada **Dockerfile**. Esse tipo de arquivo tem o mesmo propósito que um *Makefile*: é uma sequencia de instruções. E a sequencia é a seguinte:
+A criação de uma **imagem** é feita como uma *receita* chamada **Dockerfile**. Esse tipo de arquivo tem o mesmo propósito de um *Makefile*: é uma sequencia de instruções. Nesse caso, é uma que o docker entende. Basicamente, é um arquivo com **instruções** e **argumentos**:
 
-1- Escolha da imagem **BASE**
+- Instruções:
 
-2- Atualização dos repositórios *fonte*
+    **FROM**: define qual imagem/OS será usado. **Toda** imagem é baseada em outra imagem já existente, e **todo** *Dockerfile* deve iniciar com a instrução **FROM**
 
-3- Instalaçao das dependencias do OS usando *apt*
+    **RUN**: diz ao Docker para rodar um determinado comando no OS da imagem base
 
-4- Instalação dos pacotes das dependencias do OS (Se for python, instalação dos pacotes com pip)
+    **COPY**: copia arquivos **locais** para dentro da imagem
 
-5- Copia do código fonte para /opt folder
+    ```Dockerfile
+    COPY diretorio_local diretorio_imagem
+    ```
+    > *diretorio_local* é aonde está a aplicação localmente e *diretorio_imagem* é o diretório que guardará a aplicação na imagem
 
-6- Comando que faz a aplicação rodar
+    **ENTRYPOINT**: permite especificar um comando que será executado quando a **imagem rodar num container**
+    
+- Build da imagem:
 
+    ```bash
+    $ docker build Dockerfile -t diretorio_imagem/nome_imagem
+    ```
