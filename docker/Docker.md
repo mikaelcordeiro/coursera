@@ -340,3 +340,4 @@ A criação de uma **imagem** é feita como uma *receita* chamada **Dockerfile**
     $ docker build diretorio_Dockerfile -t nome_imagem:versao
     ```
     > constrói uma imagem de acordo com o Dockerfile dentro de *diretorio_Dockerfile* com REPOSITORY *nome_imagem* e TAG *versao*
+
