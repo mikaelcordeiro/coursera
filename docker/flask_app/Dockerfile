@@ -1,14 +1,13 @@
-FROM ubuntu
+FROM python:3.7
 
-RUN apt update
-RUN apt upgrade -y
-
-RUN apt install python3 -y
-RUN apt install python3-pip -y
 RUN pip3 install flask
 
-COPY . /opt/source-code
+WORKDIR /app
+
+COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+ENTRYPOINT ["python3"]
+
+CMD ["app.py"]
