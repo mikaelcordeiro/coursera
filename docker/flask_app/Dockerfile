@@ -9,4 +9,6 @@ RUN pip3 install flask
 
 COPY . /opt/source-code
 
+EXPOSE 5000
+
 ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
