@@ -340,6 +340,8 @@ A criação de uma **imagem** é feita como uma *receita* chamada **Dockerfile**
     > *diretorio_local* é aonde está a aplicação localmente e *diretorio_imagem* é o diretório que guardará a aplicação na imagem
 
     **ENTRYPOINT**: permite especificar um comando que será executado quando a **imagem rodar num container**
+
+    **CMD**: define o **programa**, ou **instrução**, que rodará dentro do container quando ele for iniciado
     
 - Build da imagem:
 
