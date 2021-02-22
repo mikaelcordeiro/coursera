@@ -323,6 +323,13 @@ A criação de uma **imagem** é feita como uma *receita* chamada **Dockerfile**
 
     **FROM**: define qual imagem/OS será usado. **Toda** imagem é baseada em outra imagem já existente, e **todo** *Dockerfile* deve iniciar com a instrução **FROM**
 
+    **WORKDIR**: funciona como a união dos comandos *mkdir* e *cd* do *bash*
+
+    ```Dockerfile
+    WORKDIR /diretorio_container
+    ```
+    > cria *diretorio_container* dentro do container e entra dentro desse container
+
     **RUN**: diz ao Docker para rodar um determinado comando no OS da imagem base
 
     **COPY**: copia arquivos **locais** para dentro da imagem
