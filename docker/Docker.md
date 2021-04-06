@@ -13,7 +13,7 @@
 0 - Caso esteja com preguiça:
 
 ```bash
-$ sudo snap install docker
+$ sudo apt install docker.io
 ```
 
 Agora, se não quiser fazer isso toda vez, basta seguir os passos abaixo
